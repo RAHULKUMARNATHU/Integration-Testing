@@ -54,26 +54,24 @@ describe('UserController (e2e)', () => {
   });
 
   it('/users/create-user (CREATE USER)', () => {
-    return (
-      request(app.getHttpServer())
-        .post('/users/create-user')
-        .send({
+    return request(app.getHttpServer())
+      .post('/users/create-user')
+      .send({
+        name: 'nathu',
+        email: 'nathu@gmail.com',
+        mobile: '9874561239',
+        address: 'jharkhand ,Hazaribagh',
+      })
+      .expect(201)
+      .then((response) => {
+        expect(response.body).toEqual({
+          id: expect.any(Number),
           name: 'nathu',
           email: 'nathu@gmail.com',
           mobile: '9874561239',
           address: 'jharkhand ,Hazaribagh',
-        })
-        .expect(201)
-        .then((response) => {
-          expect(response.body).toEqual({
-            id: expect.any(Number),
-            name: 'nathu',
-            email: 'nathu@gmail.com',
-            mobile: '9874561239',
-            address: 'jharkhand ,Hazaribagh',
-          });
-        })
-    );
+        });
+      });
   });
 
   it('/users (GET)', () => {

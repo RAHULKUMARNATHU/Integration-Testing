@@ -1,11 +1,15 @@
 import { Column, CreateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 export class BaseEntity {
-  @Column({
-    type: 'varchar',
-  })
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @Column()
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  // @Column({
+  //   type: 'varchar',
+  // })
+  // @PrimaryGeneratedColumn('uuid')
+  // uuid: number;
 
   @CreateDateColumn({
     name: 'created_at',
