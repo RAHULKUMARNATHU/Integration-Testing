@@ -12,8 +12,8 @@ export class UserEntity {
   email: string;
 
   @Column()
-  mobileNumber: string;
+  mobile: string;
 
   @Column()
-  Address: string;
+  address: string;
 }
